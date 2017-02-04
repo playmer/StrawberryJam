@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Dependencies\stb\stb_image.cpp">
+      <Filter>Dependencies\stb</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\glfw\src\context.c">
+      <Filter>Dependencies\glfw\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\glfw\src\egl_context.c">
+      <Filter>Dependencies\glfw\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\glfw\src\init.c">
+      <Filter>Dependencies\glfw\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\glfw\src\input.c">
+      <Filter>Dependencies\glfw\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\glfw\src\monitor.c">
+      <Filter>Dependencies\glfw\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\glfw\src\wgl_context.c">
+      <Filter>Dependencies\glfw\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\glfw\src\win32_init.c">
+      <Filter>Dependencies\glfw\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\glfw\src\win32_joystick.c">
+      <Filter>Dependencies\glfw\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\glfw\src\win32_monitor.c">
+      <Filter>Dependencies\glfw\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\glfw\src\win32_time.c">
+      <Filter>Dependencies\glfw\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\glfw\src\win32_tls.c">
+      <Filter>Dependencies\glfw\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\glfw\src\win32_window.c">
+      <Filter>Dependencies\glfw\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\glfw\src\window.c">
+      <Filter>Dependencies\glfw\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="Dependencies\glfw\src\vulkan.c">
+      <Filter>Dependencies\glfw\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Keyboard.cpp" />
+    <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="EventHandler.cpp" />
+    <ClCompile Include="Surface.cpp" />
+    <ClCompile Include="Dependencies\glew\glew.c">
+      <Filter>Dependencies\glew</Filter>
+    </ClCompile>
+    <ClCompile Include="Composition.cpp" />
+    <ClCompile Include="Space.cpp" />
+    <ClCompile Include="GraphicsSystem.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="Transform.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Engine.hpp" />
+    <ClInclude Include="Composition.hpp" />
+    <ClInclude Include="Dependencies\stb\stb_image.h">
+      <Filter>Dependencies\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\glfw\src\egl_context.h">
+      <Filter>Dependencies\glfw\src</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\glfw\src\internal.h">
+      <Filter>Dependencies\glfw\src</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\glfw\src\nsgl_context.h">
+      <Filter>Dependencies\glfw\src</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\glfw\src\wgl_context.h">
+      <Filter>Dependencies\glfw\src</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\glfw\src\win32_joystick.h">
+      <Filter>Dependencies\glfw\src</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\glfw\src\win32_platform.h">
+      <Filter>Dependencies\glfw\src</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\glfw\src\glfw_config.h">
+      <Filter>Dependencies\glfw\src</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\glfw\include\GLFW\glfw3.h">
+      <Filter>Dependencies\glfw\include\GLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\glfw\include\GLFW\glfw3native.h">
+      <Filter>Dependencies\glfw\include\GLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse.hpp" />
+    <ClInclude Include="Keyboard.hpp" />
+    <ClInclude Include="Button.hpp" />
+    <ClInclude Include="EventHandler.hpp" />
+    <ClInclude Include="Delegate.hpp" />
+    <ClInclude Include="BlockAllocator.hpp" />
+    <ClInclude Include="IntrusiveList.hpp" />
+    <ClInclude Include="ForwardDeclarations.hpp" />
+    <ClInclude Include="Types.hpp" />
+    <ClInclude Include="Surface.hpp" />
+    <ClInclude Include="Dependencies\GL\eglew.h">
+      <Filter>Dependencies\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\GL\glew.h">
+      <Filter>Dependencies\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\GL\glxew.h">
+      <Filter>Dependencies\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\GL\wglew.h">
+      <Filter>Dependencies\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Space.hpp" />
+    <ClInclude Include="Component.hpp" />
+    <ClInclude Include="Keys.hpp" />
+    <ClInclude Include="GraphicsSystem.hpp" />
+    <ClInclude Include="Texture.hpp" />
+    <ClInclude Include="Sprite.hpp" />
+    <ClInclude Include="Shader.hpp" />
+    <ClInclude Include="UniqueHandle.hpp" />
+    <ClInclude Include="Transform.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Dependencies">
+      <UniqueIdentifier>{4ea9543f-a9d1-4952-b765-c9b88159c2cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\stb">
+      <UniqueIdentifier>{766b0466-e2f5-4950-af29-9102b9988982}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\glfw">
+      <UniqueIdentifier>{d48a2c6e-64fe-4338-9214-e65d8c1d387c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\glfw\src">
+      <UniqueIdentifier>{6431b4ea-e660-4076-953b-d4c1dc44d08f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\glfw\include">
+      <UniqueIdentifier>{8a842955-7d7c-48fb-987c-1e53686a5cb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\glfw\include\GLFW">
+      <UniqueIdentifier>{7005b0e5-7f67-4110-b409-9abc48bf7d2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\GL">
+      <UniqueIdentifier>{e1600365-876c-4645-b7b0-f2b97931931e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\glew">
+      <UniqueIdentifier>{b9fc5146-52b1-4d98-a237-235060dbc73d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
