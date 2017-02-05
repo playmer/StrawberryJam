@@ -9,16 +9,9 @@
 using OpenGLHandle = UniqueHandle<unsigned int>;
 
 bool PrintShaderError(unsigned int aShader, unsigned int aType);
-
 void DeleteShader(unsigned int aShader);;
-
-
-
-inline OpenGLHandle CreateShader(const char *aSource, unsigned int aType);
-
-
-
-inline void DeleteShaderProgram(unsigned int aShaderProgram);;
+OpenGLHandle CreateShader(const char *aSource, unsigned int aType);
+void DeleteShaderProgram(unsigned int aShaderProgram);;
 
 class ShaderProgram
 {

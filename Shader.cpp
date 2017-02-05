@@ -2,7 +2,7 @@
 
 #include "Shader.hpp"
 
-bool PrintShaderError(GLuint aShader, unsigned int aType)
+bool PrintShaderError(unsigned int aShader, unsigned int aType)
 {
   GLint success;
   GLchar infoLog[512];

@@ -48,27 +48,45 @@ void Mouse::cursor_position_callback(GLFWwindow* aWindow, double aX, double aY)
 void Mouse::cursor_enter_callback(GLFWwindow* aWindow, int aEntered)
 {
   Surface *surface = (Surface*)glfwGetWindowUserPointer(aWindow);
-  surface->mEngine->mMouse;
+  auto mouse = &(surface->mEngine->mMouse);
+
   if (aEntered)
   {
-    // The cursor entered the client area of the window
+    mouse->mWithinWindow = true;
   }
   else
   {
-    // The cursor left the client area of the window
+    mouse->mWithinWindow = false;
   }
 }
 void Mouse::mouse_button_callback(GLFWwindow* aWindow, int aButton, int aAction, int aMods)
 {
   Surface *surface = (Surface*)glfwGetWindowUserPointer(aWindow);
   surface->mEngine->mMouse.UpdateButton((MouseButton)aButton, aAction);
+
 }
 void Mouse::scroll_callback(GLFWwindow* aWindow, double aX, double aY)
 {
   Surface *surface = (Surface*)glfwGetWindowUserPointer(aWindow);
-  surface->mEngine->mMouse;
-}
+  std::cout << aY << std::endl;
 
+  auto mouse = &(surface->mEngine->mMouse);
+
+  MouseEvent mouseEvent;
+  mouseEvent.mPosition = mouse->mPosition;
+  mouseEvent.mMouse = mouse;
+
+  if (aY > 0.0)
+  {
+    mouseEvent.mButton = MouseButton::ScrollUp;
+  }
+  else if (aY < 0.0)
+  {
+    mouseEvent.mButton = MouseButton::ScrollDown;
+  }
+
+  mouse->SendEvent(Events::MouseScroll, &mouseEvent);
+}
 
 // Sends out persist events mostly.
 void Mouse::Update()
@@ -88,7 +106,6 @@ void Mouse::Update()
     mButtons[i].mPreviousState = mButtons[i].mCurrentState;
   }
 }
-
 
 void Mouse::UpdateMovement(glm::i32vec2 aMovement)
 {

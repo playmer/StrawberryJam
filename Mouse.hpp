@@ -91,6 +91,7 @@ public:
   Key mButtons[6];
   glm::i32vec2 mPosition;
   Engine *mEngine;
+  bool mWithinWindow = false;
 };
 
 struct MouseEvent : public Event
