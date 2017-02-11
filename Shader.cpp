@@ -59,7 +59,6 @@ void DeleteShader(unsigned int aShader)
 {
   if (aShader != 0)
   {
-    std::cout << "Deleting shader: " << aShader << std::endl;
     glDeleteShader(aShader);
   }
 }
@@ -137,15 +136,15 @@ ShaderProgram::ShaderProgram(const char *aVertex, const char *aFragment)
   GLint success;
   glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
 
-  if (success)
+  if (GL_TRUE == success)
   {
     mHandle = OpenGLHandle(shaderProgram, DeleteShaderProgram);
   }
   else
   {
-    GLchar infoLog[512];
+    GLchar infoLog[2048];
 
-    glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
+    glGetProgramInfoLog(shaderProgram, 2048, NULL, infoLog);
     std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
   }
 }

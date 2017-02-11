@@ -10,7 +10,7 @@ uniform mat4 inWorldTransform;
 
 void main()
 {
-    gl_Position = inWorldTransform * vec4(inPosition, 1.0f);
     outColor = inColor;
     outTexCoordinate = vec2(inTexCoordinate.x, 1.0 - inTexCoordinate.y);
+    gl_Position = inWorldTransform * vec4(inPosition, 1.0f);
 } 
