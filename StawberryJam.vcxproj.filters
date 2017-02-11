@@ -127,6 +127,7 @@
     <ClInclude Include="Shader.hpp" />
     <ClInclude Include="UniqueHandle.hpp" />
     <ClInclude Include="Transform.hpp" />
+    <ClInclude Include="Archetypes.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Dependencies">

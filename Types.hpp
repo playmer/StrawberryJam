@@ -94,6 +94,32 @@ inline Type* GetType<Name>()    \
 }
 
 
+
+#define DeclareShader(aName)      \
+namespace Shaders                 \
+{                                 \
+  extern const std::string aName; \
+}
+
+#define DefineShader(aName)           \
+namespace Shaders                     \
+{                                     \
+  const std::string aName { #aName }; \
+}
+
+#define DeclareTexture(aName)     \
+namespace Textures                \
+{                                 \
+  extern const std::string aName; \
+}
+
+#define DefineTexture(aName)          \
+namespace Textures                    \
+{                                     \
+  const std::string aName { #aName }; \
+}
+
+
 class Base
 {
   virtual Type *GetType() = 0;

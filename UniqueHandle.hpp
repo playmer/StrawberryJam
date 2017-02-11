@@ -22,6 +22,19 @@ class UniqueHandle
   UniqueHandle& operator=(const UniqueHandle &) = delete;
   UniqueHandle(const UniqueHandle &) = delete;
 
+
+  UniqueHandle& operator=(UniqueHandle &&rhs)
+  {
+    mDestructor = rhs.mDestructor;
+    mDestructor = rhs.mDestructor;
+
+    rhs.mDestructor = nullptr;
+    rhs.mHandle = HandleType();
+
+    return *this;
+  }
+
+
   UniqueHandle(UniqueHandle &&rhs)
   {
     mDestructor = rhs.mDestructor;

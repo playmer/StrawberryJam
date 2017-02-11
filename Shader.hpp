@@ -16,6 +16,8 @@ void DeleteShaderProgram(unsigned int aShaderProgram);;
 class ShaderProgram
 {
 public:
+  ShaderProgram(const char *aVertex, const char *aFragment);
+
   void Bind();
 
   void Unbind()
@@ -26,6 +28,3 @@ public:
   OpenGLHandle mHandle;
   bool mCurrentlyUsed;
 };
-
-
-inline OpenGLHandle CreateShaderProgram(std::vector<OpenGLHandle> &aShaders);

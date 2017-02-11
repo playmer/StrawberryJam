@@ -188,6 +188,7 @@
     <ClCompile Include="Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Archetypes.hpp" />
     <ClInclude Include="BlockAllocator.hpp" />
     <ClInclude Include="Button.hpp" />
     <ClInclude Include="Component.hpp" />

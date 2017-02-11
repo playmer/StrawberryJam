@@ -52,13 +52,14 @@ Texture::Texture(const char *aPath) : mTextureId(0)
   }
   else
   {
-    std::string texturePath = std::string("./textures/") + path;
+    std::string texturePath = std::string("./Textures/") + path;
     stbi_set_flip_vertically_on_load(true);
 
     image = stbi_load(texturePath.c_str(), &width, &height, &n, 4);
-    if (!image) {
+    if (!image) 
+    {
       printf("\nRead error on file %s:\n  %s\n\n", texturePath.c_str(), stbi_failure_reason());
-      exit(-1);
+      return;
     }
   }
 

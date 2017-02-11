@@ -1,3 +1,5 @@
+#include <fstream>
+
 #include "GL/glew.h"
 
 #include "Shader.hpp"
@@ -94,45 +96,57 @@ void DeleteShaderProgram(unsigned int aShaderProgram)
   }
 }
 
-OpenGLHandle CreateShaderProgram(std::vector<OpenGLHandle>& aShaders)
+static std::string ReadFileToString(const char *aFile)
 {
+  std::string output;;
+  std::ifstream stream(aFile);
+
+  if (!stream.fail())
+  {
+    stream.seekg(0, std::ios::end);
+    output.reserve(static_cast<unsigned int>(stream.tellg()));
+    stream.seekg(0, std::ios::beg);
+
+    output.assign((std::istreambuf_iterator<char>(stream)),
+                  std::istreambuf_iterator<char>());
+    return output;
+  }
+
+  return output;
+}
+
+ShaderProgram::ShaderProgram(const char *aVertex, const char *aFragment)
+{
+  auto vertexSource = ReadFileToString(aVertex);
+  auto fragmentSource = ReadFileToString(aFragment);
+
+  auto vertex = CreateShader(vertexSource.c_str(), GL_VERTEX_SHADER);
+  auto fragment = CreateShader(fragmentSource.c_str(), GL_FRAGMENT_SHADER);
+
   unsigned int shaderProgram;
   shaderProgram = glCreateProgram();
 
-  for (auto &shader : aShaders)
-  {
-    glAttachShader(shaderProgram, shader.get());
-  }
+  glAttachShader(shaderProgram, vertex.get());
+  glAttachShader(shaderProgram, fragment.get());
 
   glLinkProgram(shaderProgram);
 
-  for (auto &shader : aShaders)
-  {
-    glDetachShader(shaderProgram, shader.get());
-  }
+  glDetachShader(shaderProgram, vertex.get());
+  glDetachShader(shaderProgram, fragment.get());
 
   GLint success;
   glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
 
-  if (!success)
+  if (success)
+  {
+    mHandle = OpenGLHandle(shaderProgram, DeleteShaderProgram);
+  }
+  else
   {
     GLchar infoLog[512];
 
     glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
     std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
-  }
-
-  if (success)
-  {
-    OpenGLHandle shaderPtr(shaderProgram, DeleteShaderProgram);
-
-    return std::move(shaderPtr);
-  }
-  else
-  {
-    unsigned int nullShader;
-    OpenGLHandle shaderPtr(nullShader, DeleteShaderProgram);
-    return std::move(shaderPtr);
   }
 }
 

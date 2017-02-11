@@ -1,5 +1,6 @@
 #include "Composition.hpp"
 
-Composition::Composition()
+Composition::Composition(Space * aSpace, const char * aName)
+  : mSpace(aSpace), mName(aName)
 {
 }

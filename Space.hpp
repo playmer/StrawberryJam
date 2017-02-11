@@ -14,6 +14,8 @@ public:
 
   GraphicsSystem* GetGraphicsSystem() { return &mGraphicsSystem; }
 
+  Composition* CreateObject();
+
 private:
   Engine *mEngine;
   std::string mName;
