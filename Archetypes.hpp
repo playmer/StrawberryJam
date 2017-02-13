@@ -12,6 +12,5 @@ namespace Archetypes
                                              ShaderProgram *aShader)
   {
     auto compostiion = std::make_unique<Composition>(aSpace, aName);
-    composition->
   }
 }
